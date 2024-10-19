@@ -12,38 +12,33 @@ def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def art():
-    print(f"{Fore.LIGHTRED_EX}" + r" ❣☬❣●▬▬๑۩۩๑▬▬●❣☬❣ " + f"{Style.RESET_ALL}")
-    print(f"{Fore.GREEN}" + r".......S A T Y A V I R " + f"{Style.RESET_ALL}")
-    print(f"{Fore.GREEN}" + r"........F O R E S T A R M Y" + f"{Style.RESET_ALL}")
-    print(f"{Fore.GREEN}" + r"............F O R E S T A R M Y" + f"{Style.RESET_ALL}")
-    print(f"{Fore.MAGENTA}" + r"............S A T Y A V I R  " + f"{Style.RESET_ALL}")
-    print(f"{Fore.LIGHTRED_EX}" + r"...........S A N D Y   " + f"{Style.RESET_ALL}")
-    print(f"{Fore.GREEN}" + r"...............S U B S C R I B E" + f"{Style.RESET_ALL}")
+    GREEN = Fore.GREEN
+    RED = Fore.LIGHTRED_EX
+    BLUE = Fore.CYAN
+    YELLOW = Fore.YELLOW
+    RESET = Style.RESET_ALL
 
-    print(f"{Fore.CYAN + Style.BRIGHT}Join our Telegram: https://t.me/forestarmy{Style.RESET_ALL}\n")
-    
-    print(f"{Fore.GREEN + Style.BRIGHT}Seed Mining By FORESTARMY{ Style.RESET_ALL}\n")
-    
-    draw_tree()
+    print(f"{GREEN} ██████╗ █████╗███╗   ██╗█████╗      {RED} ██████╗██████╗██████╗██████████████╗{RESET}")
+    print(f"{GREEN} ██╔══████╔══██████╗  ████╔══██╗     {RED}██╔════██╔═══████╔══████╔════██╔════╝{RESET}")
+    print(f"{YELLOW}██████╔█████████╔██╗ █████████║    {BLUE}██║    ██║   ████║  ███████╗ ███████╗{RESET}")
+    print(f"{YELLOW}██╔══████╔══████║╚██╗████╔══██║    {BLUE}██║    ██║   ████║  ████╔══╝ ╚════██║{RESET}")
+    print(f"{GREEN} ██████╔██║  ████║ ╚██████║  ██║     {RED}╚██████╚██████╔██████╔██████████████║{RESET}")
+    print(f"{GREEN} ╚═════╝╚═╝  ╚═╚═╝  ╚═══╚═╝  ╚═╝     {RED} ╚═════╝╚═════╝╚═════╝╚══════╚══════╝{RESET}\n")
 
-def draw_tree():
-    tree = f"""
-        {Fore.GREEN} ig:-   S A T Y A V I R K U M A R S A T Y A R T H I
-               SUBSCRIBE TO FORESTARMY FOR MORE CRYPTO UPDATE AND ALSO GET FREE AIRDROP HACS SCRIPT 🔥
-             
-    {Style.RESET_ALL}
+    print(f"{YELLOW} Made and written by {BLUE}BANA CODES{RESET} {RED}||{RESET} {BLUE}@banacodes{RESET}")
+    print(f"{GREEN} Join telegram channel: {YELLOW}https://t.me/banacodes{RESET}\n")
 
-    """
-    print(tree)
-    print(f"{Fore.GREEN + Style.BRIGHT}- Auto claim{Style.RESET_ALL}")
-    print(f"{Fore.GREEN + Style.BRIGHT}- Auto Tasks{Style.RESET_ALL}")
-    print(f"{Fore.GREEN + Style.BRIGHT}- Auto spin{Style.RESET_ALL}")
+    print(f"{RED}  -Auto claim{RESET}")
+    print(f"{GREEN}-Auto tasks{RESET}")
+    print(f"{BLUE} -Auto spin{RESET}")
 
 def load_tokens(filename):
+    """Loads tokens from a given file."""
     with open(filename, 'r') as file:
         return [line.strip() for line in file if line.strip()]
 
 def get_headers(token):
+    """Generates headers for a request using a random user agent."""
     ua = UserAgent()
     return {
         'accept': 'application/json, text/plain, */*',
@@ -64,6 +59,7 @@ def get_headers(token):
     }
 
 def handle_request(method, url, headers, data=None):
+    """Handles requests and manages errors gracefully."""
     try:
         if method == 'GET':
             response = requests.get(url, headers=headers)
@@ -76,16 +72,16 @@ def handle_request(method, url, headers, data=None):
     except requests.ConnectionError:
         print(f"{Fore.RED + Style.BRIGHT}Connection error occurred.")
     except requests.RequestException as e:
-        # تحقق من رسالة الخطأ الخاصة
         if "login-bonuses" in str(e):
             print(f"{Fore.YELLOW + Style.BRIGHT}Daily bonus already claimed, please come back tomorrow.")
         elif "seed/claim" in str(e):
             print(f"{Fore.YELLOW + Style.BRIGHT}Claim is not available now.")
         else:
-            print(f"{Fore.RED + Style.BRIGHT}Request failed.")  # طباعة رسالة عامة دون تفاصيل
+            print(f"{Fore.RED + Style.BRIGHT}Request failed.")
     return None
 
 def login(token):
+    """Logs in and fetches profile and balance data."""
     url_profile = "https://elb.seeddao.org/api/v1/profile2"
     url_balance = "https://elb.seeddao.org/api/v1/profile/balance"
     headers = get_headers(token)
@@ -97,6 +93,7 @@ def login(token):
         print(f"{Fore.GREEN + Style.BRIGHT}Balance: {Fore.WHITE + Style.BRIGHT}{balance:.3f}")
 
 def daily_bonus(token):
+    """Claims the daily bonus."""
     url_bonus = "https://elb.seeddao.org/api/v1/login-bonuses"
     headers = get_headers(token)
 
@@ -106,6 +103,7 @@ def daily_bonus(token):
         print(f"{Fore.GREEN + Style.BRIGHT}Daily Reward Claimed: {Fore.WHITE + Style.BRIGHT}{int(reward)/1000000000}" if reward else f"{Fore.YELLOW + Style.BRIGHT}Daily Reward Already Claimed")
 
 def claim(token):
+    """Claims available seeds."""
     url_claim = "https://elb.seeddao.org/api/v1/seed/claim"
     headers = get_headers(token)
 
@@ -115,6 +113,7 @@ def claim(token):
         print(f"{Fore.GREEN + Style.BRIGHT}Seed Claimed: {Fore.WHITE + Style.BRIGHT}{int(amount)/1000000000}" if amount else f"{Fore.YELLOW + Style.BRIGHT}Seed Already Claimed")
 
 def spin(token):
+    """Handles the spinning reward system."""
     url_ticket = "https://elb.seeddao.org/api/v1/spin-ticket"
     url_spin = "https://elb.seeddao.org/api/v1/spin-reward"
     headers = get_headers(token)
@@ -129,6 +128,7 @@ def spin(token):
                 print(f"{Fore.CYAN + Style.BRIGHT}Spin Reward: {spin_data.get('data', {}).get('type')}")
 
 def task(token):
+    """Completes tasks and marks them as done."""
     url_tasks = "https://elb.seeddao.org/api/v1/tasks/progresses"
     headers = get_headers(token)
 
@@ -139,11 +139,12 @@ def task(token):
             url_complete = f"https://elb.seeddao.org/api/v1/tasks/{task['id']}"
             task_complete_data = handle_request('POST', url_complete, headers)
             if task_complete_data:
-                task_name = task.get('name', 'Unknown Task')  # الحصول على اسم المهمة
-                print(f"{Fore.GREEN + Style.BRIGHT}Task '{task_name}' Completed")  # طباعة المهام المكتملة بلون الأخضر
+                task_name = task.get('name', 'Unknown Task')
+                print(f"{Fore.GREEN + Style.BRIGHT}Task '{task_name}' Completed")
             time.sleep(5)
 
 def countdown_timer(seconds):
+    """Displays a countdown timer."""
     while seconds > 0:
         mins, secs = divmod(seconds, 60)
         hours, mins = divmod(mins, 60)
