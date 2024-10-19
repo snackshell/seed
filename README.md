@@ -21,7 +21,7 @@ This Python-based tool automates tasks for the Telegram Play-to-Earn airdrop gam
 
 **## Installation:**
 
-1. Clone this repository: git clone https://github.com/snackshell/bana-codes-auto-claim-tool.git
+1. Clone this repository: git clone https://github.com/snackshell/seed.git
 2. Navigate to the project directory: cd bana-codes-auto-claim-tool
 3. Install the required dependencies: pip install -r requirements.txt
 
