@@ -30,11 +30,9 @@ This Python-based tool automates tasks for the Telegram Play-to-Earn airdrop gam
 2. Enter your query_id when prompted. It will be saved to data.txt for future use.
 3. Follow the on-screen instructions to automate tasks, claim rewards, and spin tickets.
 
-[GitHub Repository: BANA CODES Auto-Claim Tool on GitHub](https://chatgpt.com/g/g-cKXjWStaE-python/c/671391f9-7030-800c-a6f7-cb15f2279ccf#:~:text=GitHub%20Repository%3A,Tool%20on%20GitHub)
+**GitHub Repository**: [Seed-Auto-Claim Tool on GitHub](https://github/snackshell/seed.git)
 
 **Telegram Channel:**
 Join the BANA CODES community on Telegram for updates and more tools: https://t.me/banacodes
 
 **Happy Automating!**
-
-This updated `README.md` includes all relevant details, including your **GitHub repository** and **Telegram channel**. You don't need any additional `.json` files to store data.
