@@ -1,5 +1,7 @@
 **# BANA CODES Auto-Claim Tool**
 
+![photo_2024-10-19_05-12-54](https://github.com/user-attachments/assets/9cefae50-3022-45e0-a0a0-b2233f54d92b)
+
 This Python-based tool automates tasks for the Telegram Play-to-Earn airdrop game, handling auto claims, tasks, and spins.
 
 **## Features:**
