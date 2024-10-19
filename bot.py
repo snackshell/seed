@@ -18,27 +18,38 @@ def art():
     YELLOW = Fore.YELLOW
     RESET = Style.RESET_ALL
 
-    print(f"{GREEN}██████╗ █████╗███╗   ██╗█████╗      {RED}██████╗██████╗██████╗██████████████╗{RESET}")
-    print(f"{GREEN}██╔══████╔══██████╗  ████╔══██╗     {RED}██╔════██╔═══████╔══████╔════██╔════╝{RESET}")
-    print(f"{YELLOW}██████╔█████████╔██╗ █████████║    {BLUE}██║    ██║   ████║  ███████╗ ███████╗{RESET}")
-    print(f"{YELLOW}██╔══████╔══████║╚██╗████╔══██║    {BLUE}██║    ██║   ████║  ████╔══╝ ╚════██║{RESET}")
-    print(f"{GREEN}██████╔██║  ████║ ╚██████║  ██║     {RED}╚██████╚██████╔██████╔██████████████║{RESET}")
-    print(f"{GREEN}╚═════╝╚═╝  ╚═╚═╝  ╚═══╚═╝  ╚═╝     {RED}╚═════╝╚═════╝╚═════╝╚══════╚══════╝{RESET}\n")
+    print(f"{GREEN}░█▀▄░█▀█░█▀█░█▀█░    {GREEN}░█▀▀░█▀█░█▀▄░█▀▀░█▀▀{RESET}")
+    print(f"{YELLOW}░█▀▄░█▀█░█░█░█▀█░  {YELLOW}░█░░░█░█░█░█░█▀▀░▀▀█{RESET}")
+    print(f"{RED}░▀▀░░▀░▀░▀░▀░▀░▀░        {RED}░▀▀▀░▀▀▀░▀▀░░▀▀▀░▀▀▀{RESET}\n")
 
     print(f"{YELLOW} Made and written by {BLUE}BANA CODES{RESET} {RED}||{RESET} {BLUE}@banacodes{RESET}")
     print(f"{GREEN} Join telegram channel: {YELLOW}https://t.me/banacodes{RESET}\n")
 
-    print(f"{RED}-Auto claim{RESET}")
-    print(f"{GREEN}-Auto tasks{RESET}")
-    print(f"{BLUE}-Auto spin{RESET}")
+    print(f"{RED}- Auto claim{RESET}")
+    print(f"{GREEN}- Auto tasks{RESET}")
+    print(f"{BLUE}- Auto spin{RESET}")
+
+def load_or_ask_query_id(filename):
+    if os.path.exists(filename):
+        with open(filename, 'r') as file:
+            query_id = file.read().strip()
+            if query_id:
+                print(f"{Fore.LIGHTYELLOW_EX}Found saved query_id: {Fore.LIGHTCYAN_EX}{query_id}")
+                use_saved = input(f"{Fore.LIGHTGREEN_EX}Do you want to use the saved query_id? (y/n): ").strip().lower()
+                if use_saved == 'y':
+                    return query_id
+
+    query_id = input(f"{Fore.LIGHTGREEN_EX}Enter your query_id: ").strip()
+    with open(filename, 'w') as file:
+        file.write(query_id)
+    print(f"{Fore.LIGHTBLUE_EX}Your query_id has been saved successfully!")
+    return query_id
 
 def load_tokens(filename):
-    """Loads tokens from a given file."""
     with open(filename, 'r') as file:
         return [line.strip() for line in file if line.strip()]
 
 def get_headers(token):
-    """Generates headers for a request using a random user agent."""
     ua = UserAgent()
     return {
         'accept': 'application/json, text/plain, */*',
@@ -59,7 +70,6 @@ def get_headers(token):
     }
 
 def handle_request(method, url, headers, data=None):
-    """Handles requests and manages errors gracefully."""
     try:
         if method == 'GET':
             response = requests.get(url, headers=headers)
@@ -81,7 +91,6 @@ def handle_request(method, url, headers, data=None):
     return None
 
 def login(token):
-    """Logs in and fetches profile and balance data."""
     url_profile = "https://elb.seeddao.org/api/v1/profile2"
     url_balance = "https://elb.seeddao.org/api/v1/profile/balance"
     headers = get_headers(token)
@@ -93,7 +102,6 @@ def login(token):
         print(f"{Fore.GREEN + Style.BRIGHT}Balance: {Fore.WHITE + Style.BRIGHT}{balance:.3f}")
 
 def daily_bonus(token):
-    """Claims the daily bonus."""
     url_bonus = "https://elb.seeddao.org/api/v1/login-bonuses"
     headers = get_headers(token)
 
@@ -103,7 +111,6 @@ def daily_bonus(token):
         print(f"{Fore.GREEN + Style.BRIGHT}Daily Reward Claimed: {Fore.WHITE + Style.BRIGHT}{int(reward)/1000000000}" if reward else f"{Fore.YELLOW + Style.BRIGHT}Daily Reward Already Claimed")
 
 def claim(token):
-    """Claims available seeds."""
     url_claim = "https://elb.seeddao.org/api/v1/seed/claim"
     headers = get_headers(token)
 
@@ -113,7 +120,6 @@ def claim(token):
         print(f"{Fore.GREEN + Style.BRIGHT}Seed Claimed: {Fore.WHITE + Style.BRIGHT}{int(amount)/1000000000}" if amount else f"{Fore.YELLOW + Style.BRIGHT}Seed Already Claimed")
 
 def spin(token):
-    """Handles the spinning reward system."""
     url_ticket = "https://elb.seeddao.org/api/v1/spin-ticket"
     url_spin = "https://elb.seeddao.org/api/v1/spin-reward"
     headers = get_headers(token)
@@ -128,7 +134,6 @@ def spin(token):
                 print(f"{Fore.CYAN + Style.BRIGHT}Spin Reward: {spin_data.get('data', {}).get('type')}")
 
 def task(token):
-    """Completes tasks and marks them as done."""
     url_tasks = "https://elb.seeddao.org/api/v1/tasks/progresses"
     headers = get_headers(token)
 
@@ -144,7 +149,6 @@ def task(token):
             time.sleep(5)
 
 def countdown_timer(seconds):
-    """Displays a countdown timer."""
     while seconds > 0:
         mins, secs = divmod(seconds, 60)
         hours, mins = divmod(mins, 60)
@@ -157,7 +161,9 @@ def main():
     clear_terminal()
     art()
 
+    query_id = load_or_ask_query_id('data.txt')
     run_task = input("Do you want to run task(token)? (y/n): ").strip().lower()
+    
     while True:
         tokens = load_tokens('data.txt')
 
