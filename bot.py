@@ -18,19 +18,19 @@ def art():
     YELLOW = Fore.YELLOW
     RESET = Style.RESET_ALL
 
-    print(f"{GREEN} ██████╗ █████╗███╗   ██╗█████╗      {RED} ██████╗██████╗██████╗██████████████╗{RESET}")
-    print(f"{GREEN} ██╔══████╔══██████╗  ████╔══██╗     {RED}██╔════██╔═══████╔══████╔════██╔════╝{RESET}")
+    print(f"{GREEN}██████╗ █████╗███╗   ██╗█████╗      {RED}██████╗██████╗██████╗██████████████╗{RESET}")
+    print(f"{GREEN}██╔══████╔══██████╗  ████╔══██╗     {RED}██╔════██╔═══████╔══████╔════██╔════╝{RESET}")
     print(f"{YELLOW}██████╔█████████╔██╗ █████████║    {BLUE}██║    ██║   ████║  ███████╗ ███████╗{RESET}")
     print(f"{YELLOW}██╔══████╔══████║╚██╗████╔══██║    {BLUE}██║    ██║   ████║  ████╔══╝ ╚════██║{RESET}")
-    print(f"{GREEN} ██████╔██║  ████║ ╚██████║  ██║     {RED}╚██████╚██████╔██████╔██████████████║{RESET}")
-    print(f"{GREEN} ╚═════╝╚═╝  ╚═╚═╝  ╚═══╚═╝  ╚═╝     {RED} ╚═════╝╚═════╝╚═════╝╚══════╚══════╝{RESET}\n")
+    print(f"{GREEN}██████╔██║  ████║ ╚██████║  ██║     {RED}╚██████╚██████╔██████╔██████████████║{RESET}")
+    print(f"{GREEN}╚═════╝╚═╝  ╚═╚═╝  ╚═══╚═╝  ╚═╝     {RED}╚═════╝╚═════╝╚═════╝╚══════╚══════╝{RESET}\n")
 
     print(f"{YELLOW} Made and written by {BLUE}BANA CODES{RESET} {RED}||{RESET} {BLUE}@banacodes{RESET}")
     print(f"{GREEN} Join telegram channel: {YELLOW}https://t.me/banacodes{RESET}\n")
 
-    print(f"{RED}  -Auto claim{RESET}")
+    print(f"{RED}-Auto claim{RESET}")
     print(f"{GREEN}-Auto tasks{RESET}")
-    print(f"{BLUE} -Auto spin{RESET}")
+    print(f"{BLUE}-Auto spin{RESET}")
 
 def load_tokens(filename):
     """Loads tokens from a given file."""
