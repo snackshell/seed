@@ -18,9 +18,11 @@ def art():
     YELLOW = Fore.YELLOW
     RESET = Style.RESET_ALL
 
-print(f"{GREEN} ░█▀▄░█▀█░█▀█░█▀█░  ░█▀▀░█▀█░█▀▄░█▀▀░█▀▀{RESET}")
-print(f"{YELLOW} ░█▀▄░█▀█░█░█░█▀█░  ░█░░░█░█░█░█░█▀▀░▀▀█{RESET}")
-print(f"{RED} ░▀▀░░▀░▀░▀░▀░▀░▀░  ░▀▀▀░▀▀▀░▀▀░░▀▀▀░▀▀▀{RESET}\n")
+print(f"{GREEN}██████   █████  ███    ██  █████       ██████  ██████  ██████  ███████ ███████{RESET}")
+print(f"{GREEN}██   ██ ██   ██ ████   ██ ██   ██     ██      ██    ██ ██   ██ ██      ██     {RESET}")
+print(f"{YELLOW}██████  ███████ ██ ██  ██ ███████     ██      ██    ██ ██   ██ █████   ███████{RESET}")
+print(f"{RED}██   ██ ██   ██ ██  ██ ██ ██   ██     ██      ██    ██ ██   ██ ██           ██{RESET}")
+print(f"{RED}██████  ██   ██ ██   ████ ██   ██      ██████  ██████  ██████  ███████ ███████{RESET}\n")
 
 print(f"{YELLOW} Made and written by {BLUE}BANA CODES{RESET} {RED}||{RESET} {BLUE}@banacodes{RESET}")
 print(f"{GREEN} Join telegram channel: {YELLOW}https://t.me/banacodes{RESET}\n")
