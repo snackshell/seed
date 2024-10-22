@@ -20,14 +20,16 @@ def art():
 
     print(f"{GREEN}░█▀▄░█▀█░█▀█░█▀█░   ░█▀▀░█▀█░█▀▄░█▀▀░█▀▀{RESET}")
     print(f"{YELLOW}░█▀▄░█▀█░█░█░█▀█░   ░█░░░█░█░█░█░█▀▀░▀▀█{RESET}")
-    print(f"{RED}░▀▀░░▀░▀░▀░▀░▀░▀░   ░▀▀▀░▀▀▀░▀▀░░▀▀▀░▀▀▀{RESET}\n")
+    print(f"{RED}░▀▀░░▀░▀░▀░▀░▀░▀░   ░▀▀▀░▀▀▀░▀▀░░▀▀▀░▀▀▀{RESET}\n\n")
+    
 
     print(f"{YELLOW} Made and written by {BLUE}BANA CODES{RESET} {RED}||{RESET} {BLUE}@banacodes{RESET}")
-    print(f"{GREEN} Join telegram channel: {YELLOW}https://t.me/banacodes{RESET}\n")
+    print(f"{GREEN} Join telegram channel: {YELLOW}https://t.me/banacodes{RESET}\n\n")
+    
 
     print(f"{RED}➡Auto claim{RESET}")
     print(f"{GREEN}➡Auto tasks{RESET}")
-    print(f"{BLUE}➡Auto spin{RESET}\n")
+    print(f"{BLUE}➡Auto spin{RESET}\n\n")
 
 def load_or_ask_query_id(filename):
     if os.path.exists(filename):
