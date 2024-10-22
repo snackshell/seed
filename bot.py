@@ -27,7 +27,7 @@ def art():
 
     print(f"{RED}➡Auto claim{RESET}")
     print(f"{GREEN}➡Auto tasks{RESET}")
-    print(f"{BLUE}➡Auto spin{RESET}")
+    print(f"{BLUE}➡Auto spin{RESET}\n")
 
 def load_or_ask_query_id(filename):
     if os.path.exists(filename):
