@@ -41,7 +41,7 @@ def load_or_ask_query_id(filename):
                 if use_saved == 'y':
                     return query_id
 
-    query_id = input(f"{Fore.LIGHTGREEN_EX}Enter your query_id: ").strip()
+    query_id = input(f"{Fore.LIGHTRED_EX}Enter your query_id: ").strip()
     with open(filename, 'w') as file:
         file.write(query_id)
     print(f"{Fore.LIGHTBLUE_EX}Your query_id has been saved successfully!")
